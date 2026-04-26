@@ -1,0 +1,12 @@
+.trends
+    h5 Trends für dich
+    ul
+        if trends && trends.length
+            each trend in trends
+                li
+                    strong= trend.hashtag
+                    |
+                    br
+                    span= trend.anzahl + ' Others'
+        else
+            li Keine Trends gefunden.

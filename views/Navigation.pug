@@ -1,0 +1,9 @@
+nav
+  img.logo(src="/img/logo.svg", alt="logo")
+  h3= title
+  .search-container
+    form(method="GET", action="/users", class="d-flex")
+      button.bi.bi-search.search-icon(type="submit")
+      input(type="text", name="search", placeholder="Other durchsuchen", value=search)
+
+//das hier ist die obere Navigationsleiste mit der Suche, dem Logo und dem Titel

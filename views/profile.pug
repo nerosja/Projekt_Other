@@ -1,0 +1,67 @@
+doctype html
+html
+    head
+        title OTHer
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        // Bootstrap CSS
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css")
+        // Bootstrap Icons
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css")
+        //Icon für Browser Tab
+        link(rel="icon"  href="/img/logo.svg")
+        link(rel="stylesheet", href="/css/style.css")
+        link(href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet")
+body
+    nav
+        include Navigation
+
+    .container
+        .left-navigation
+            include leftside
+        .wholeProfile
+            .showUserProfile
+                .imgAndUpload
+                    if uploadError
+                        .alert.alert-danger= uploadError
+                    img(src='/img/users/' + profile.profile_pic + ".png", alt='Profilbild')
+                    if profile.user_id === currentUserId
+                        form(action="/upload-profile-pic" method="POST" enctype="multipart/form-data")
+                            input(type="file" name="avatar" accept="image/*" required class="form-control")
+                            button.btn.btn-primary(type="submit") Hochladen
+
+                h5 #{profile.name}
+                h5.text-muted @#{profile.name}
+                if profile.bio_text
+                    p Bio: #{profile.bio_text}
+                else
+                  p keine bio vorhanden, erzähl uns was über dich!
+                p Birthday: #{profile.birthday}
+                p Account erstellt: #{profile.created}
+                p
+                    | #{others.length} #{others.length === 1 ? 'Other' : 'Others'} written ·
+                    | #{profile.follower_count} #{profile.follower_count == 1 ? 'Follower' : 'Followers'} ·
+                    | #{profile.followee_count} Following
+
+                    //zu follower_count == 1: wenn man === benutzt geht es nicht! Dann wird immer 'Followers' angezeigt!
+            .othersInProfile
+                if others.length > 0
+                    each other in others
+                            .card
+                                .niceLayoutOthers
+                                    .nameAndDate
+                                        if profile.profile_pic
+                                            img(src='/img/users/' + profile.profile_pic + ".png", alt=profile.name)
+                                        h5.card-title
+                                            | #{profile.name}
+                                        span.text-muted  &nbsp   @#{profile.name} &nbsp *
+                                            //wegen | wird der name normal angezeigt und text-muted ist eine bootstrap klasse die den text grau macht; &nbsp macht ein leerzeichen zwischen den normalen und grauen text
+                                            // * für schönere darstellung :  zB   name @name *Tag Monat Jahr
+                                        span.text-muted=other.created
+                                    p.card-text= other.text
+                                if other.user_id === currentUserId
+                                    form(method="POST", action="/delete-other")
+                                        input(type="hidden", name="post_id", value=other.post_id)
+                                        button.btn-delete.btn.btn-danger(type="submit") Löschen
+
+

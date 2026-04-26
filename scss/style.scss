@@ -1,0 +1,377 @@
+$primary-color: white;
+body {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin-top: 10px;
+
+
+  .logo {
+    width: 50px;
+    height: 50px;
+    display: flex;
+
+  }
+
+  h3 {
+    width: 250px;
+  }
+
+  .search-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: fit-content;
+    background-color: white;
+
+
+    .search-icon {
+      color: #888;
+      font-size: 14px;
+      background-color: lightgray;
+      margin-right: 6px;
+      border: 1px solid #ccc;
+      padding: 5px;
+
+
+    }
+
+    svg {
+      width: 14px;
+      height: 14px;
+
+    }
+
+    input {
+      border: none;
+      outline: none;
+      font-size: 14px;
+      color: #333;
+      background-color: transparent;
+
+      &::placeholder {
+        color: #666;
+      }
+    }
+  }
+}
+
+.container {
+  display: flex;
+  margin-top: 50px;
+  width: 100%;
+
+  .left-navigation {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin-right: 150px;
+
+    i {
+      padding-right: 20px;
+    }
+
+    a {
+      color: black;
+      margin-bottom: 20px;
+      font-size: 25px;
+      text-decoration: none;
+    }
+
+    .logoutButton, .otherButton {
+      display: flex;
+      height: 40px;
+      justify-content: center;
+      background-color: royalblue;
+      border-radius: 30px;
+      margin-bottom: 10px;
+
+      a {
+        color: white;
+      }
+
+    }
+
+    .homepageAndUsers {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .maincontent {
+    display: flex;
+    flex-direction: row;
+    min-width: 0;
+    justify-content: space-evenly;
+    flex: 1;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+  }
+
+  .landingPageNavigation {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    font-size: 25px;
+    margin-right: 200px;
+
+    img {
+      width: 50px;
+      height: 50px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+
+    .loginAndRegisterButton {
+
+      width: 100%;
+
+      .loginButton, .registerButton {
+        height: 40px;
+        border-radius: 30px;
+        background-color: royalblue;
+        margin: 20px 0;
+        display: flex;
+        justify-content: center;
+      }
+
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+
+  }
+
+  .allUser {
+    width: auto;
+    display: grid;
+    grid-auto-rows: auto;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: row;
+      height: auto;
+      padding: 10px;
+
+      .nameAndName {
+        display: flex;
+        flex-direction: row;
+      }
+
+      p {
+        display: none;
+      }
+
+      .btn-warning {
+        background-color: red;
+        color: white;
+      }
+
+
+      img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .trendscontainer {
+    width: 250px;
+    height: fit-content;
+    background-color: #ccc;
+    border-radius: 15px;
+    margin-left: 150px;
+
+    .trends {
+      display: flex;
+      flex-direction: column;
+      margin-left: 20px;
+
+      ul {
+        list-style: none;
+
+        li {
+          margin-top: 10px;
+        }
+      }
+
+      h5 {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  .othern {
+    display: grid;
+    grid-auto-rows: auto;
+    width: 500px;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: row;
+      height: auto;
+      padding: 10px;
+
+
+      .niceLayoutOthers {
+        display: flex;
+        flex-direction: column;
+        margin-left: 5px;
+        margin-top: 2px;
+      }
+
+      .card-text {
+        white-space: pre-wrap; //damit in den Others Zeilenumbrüche etc. sichtbar sind
+
+      }
+
+      .nameAndDate {
+        display: flex;
+        flex-direction: row;
+      }
+
+      h5 {
+        font-size: 18px;
+      }
+
+      img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .loginForm {
+    width: 500px;
+
+    form {
+      margin-top: 20px;
+    }
+
+    input {
+      border-radius: 10px;
+      outline: none;
+      margin: 10px 0;
+      height: 40px;
+      font-size: 15px;
+      width: 350px;
+
+    }
+
+    input::placeholder {
+      color: #888;
+      opacity: 1;
+      padding-left: 10px;
+    }
+
+    h5 {
+      margin: 10px;
+    }
+  }
+
+  .wholeProfile {
+    width: 800px;
+
+    .showUserProfile {
+
+      .imgAndUpload {
+        display: flex;
+        flex-direction: row;
+      }
+
+      button {
+        margin-top: 10px;
+      }
+
+      img {
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+        margin-right: 20px;
+      }
+    }
+
+    .othersInProfile {
+      .card {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        width: 600px;
+
+      }
+
+      .nameAndDate {
+        display: flex;
+        flex-direction: row;
+
+      }
+
+      p {
+        white-space: pre-wrap;
+        padding: 10px 0;
+      }
+
+      img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+    }
+
+  }
+
+  .writingOther {
+
+    textarea {
+      width: 300px;
+      height: 200px;
+    }
+  }
+
+  button {
+    border-radius: 10px;
+    background-color: royalblue;
+    outline: none;
+    border: none;
+    color: white;
+    margin-top: 10px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .btn-delete {
+    background-color: red;
+
+  }
+}

@@ -1,0 +1,19 @@
+//other hier anzeigen
+
+each other in others
+
+    .card
+        if other.profile_pic
+            img(src='/img/users/' + other.profile_pic + ".png", alt=other.name)
+        .niceLayoutOthers
+            .nameAndDate
+                h5.card-title
+                    a(href=`/profile/${other.user_id}`)| #{other.name}
+                span.text-muted  &nbsp   @#{other.name} &nbsp *
+                //wegen | wird der name normal angezeigt und text-muted ist eine bootstrap klasse die den text grau macht; &nbsp macht ein leerzeichen zwischen den normalen und grauen text
+                // * für schönere darstellung :  zB   name @name *Tag Monat Jahr
+                span.text-muted=other.created
+            p.card-text= other.text
+
+
+
